@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="./data.js"></script>
+    <title>Document</title>
+</head>
+<style>
+    .character{
+        border: 2px solid black;
+        width: 300px;
+        height: 300px;
+        overflow: hidden;
+    }
+    
+
+    .imgContainer{
+        display: flex;
+        justify-content: center;
+    }
+    .imgContainer img{
+        
+        width: 50%;
+        height: 50%;
+    }
+    .container{
+        display: flex;
+        flex-direction: row;
+    }
+</style>
+
+<body>
+    <div id="app">
+        <button @onclick="change" >skill-mode</button>
+        <button @onclick="change">character-mode</button>
+
+        <div id= 1 class="container">
+
+            <div v-for="item in character" :key="item.id" class="character">
+                <h5>이름 : {{item.name}}</h5>
+                <p>{{item.introduction}}</p>
+                <div class="imgContainer">
+                    <img :src=item.img />
+                </div>
+            </div>
+        </div>
+
+        <div id=2 class="container">
+            
+            <div v-for="item in skill" :key="item.id" class="character">
+                <h5>스킬이름 : {{item.skill}}</h5>
+                <p>{{item.introduction}}</p>
+                <div class="imgContainer">
+                    <img :src=item.imgs />
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <script>
+        const { createApp, ref, reactive} = Vue;
+
+        createApp({
+            setup(){
+                const character =scholar;
+                const skill = msaSkill;
+                return{
+                    character,
+                    skill
+                }
+            }
+        }).mount("#app")
+    </script>
+    
+</body>
+</html>

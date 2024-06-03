@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id="step03">
+        <p>{{sum}}</p>
+        <button @click="x++">x++</button>
+        <button @click="y++">y++</button>
+     </div>
+    
+    <script>
+        const {createApp, watch, ref, reactive} = Vue;
+        
+        createApp({
+            setup(){
+                const x = ref(0);
+                const y = ref(0);
+                const sum = ref(0);
+
+                watch(
+                    ()=>{
+                        return x.value + y.value;
+                    },
+                 (result)=>{
+                    sum.value= result;
+                    }
+                );
+                return{
+                    x,
+                    y,
+                    sum
+                }
+            }
+        }).mount("#step03")
+    </script>
+    
+</body>
+</html>
