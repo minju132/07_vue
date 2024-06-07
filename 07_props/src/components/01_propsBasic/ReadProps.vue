@@ -6,5 +6,5 @@ import { inject } from "vue";
 
 <template>
     <h1>{{ readValue  }}</h1>
-    자식의 readValue : <input v-model="readValue">
+    자식의 readValue : <input v-model="readValue"/>
 </template>

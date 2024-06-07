@@ -1,9 +1,13 @@
 <script setup>
     import { inject } from 'vue';
 
-    const darkMode = inject("darkmode")
+    const darkState = inject("darkState");
+
+    function darkMode() {
+        darkState.value = !darkState.value;
+    }
 </script>
 
 <template>
-    <button @click="darkMode">Vue 다크모드 + {{ darkState }}</button>
+    <button @click="darkMode">{{ darkState ? "dark" : "no"}}</button>
 </template>

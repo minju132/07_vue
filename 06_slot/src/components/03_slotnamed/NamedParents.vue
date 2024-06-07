@@ -12,13 +12,13 @@ import NamedChild from './NamedChild.vue';
     <div class="container">
         <h1>NamedSlot</h1>
         <NamedChild>
-            <template v-slot:name>
+            <template #name>
                 <h2>name : {{ obj.name }}</h2>
             </template>
             <template #founder>
                 <p>founder : {{ obj.founder }}</p>
             </template>
-            <template #img>
+            <template v-slot:img>
                 <img :src="obj.img" alt="image"/>
             </template>
         </NamedChild>
